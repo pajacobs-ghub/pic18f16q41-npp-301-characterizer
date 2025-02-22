@@ -81,7 +81,7 @@ int main(void)
     uart1_init(115200);
     __delay_ms(10);
     n = printf("PIC18F16Q41 NPP-301 characterizer\r\n");
-    n = printf("Start typing text, pressing Enter at the end of each line.\r\n");
+    n = printf("Start typing text, pressing Ctrl-J (NL) at the end of each line.\r\n");
     n = printf("\r\n");
     // We will operate the MCU as a slave, waiting for commands
     // and only responding then.
@@ -91,7 +91,7 @@ int main(void)
         // Backspace deleting is allowed.
         // NL signals end of string.
         m = uart1_getstr(buf, NBUF);
-        n = printf(" Entered text was: ");
+        n = printf("Entered text was: ");
         if (m > 0) { puts(buf); }
         n = printf("\r\n");
         if (strncmp(buf, "quit", 4) == 0) break;
